@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
 
 export default function Home() {
@@ -8,7 +9,6 @@ export default function Home() {
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  // Usuário e senha válidos
   const usuarioValido = "admin";
   const senhaValida = "1234";
 
@@ -16,40 +16,59 @@ export default function Home() {
     e.preventDefault();
     if (usuario === usuarioValido && senha === senhaValida) {
       setErro("");
-      navigate("/dashboard"); // Redireciona para Dashboard
+      navigate("/dashboard");
     } else {
       setErro("Usuário ou senha incorreta");
     }
   };
 
   return (
-    <main className="home-page">
-      <div className="home-bg">
-        <div className="home-box">
-          <h1>VidaPlus</h1>
-          <p>Controle completo de pacientes, agendas e relatórios.</p>
+    <main className="home-page d-flex align-items-center justify-content-center vh-100">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-4 col-md-6 col-sm-10">
 
-          <form onSubmit={handleLogin} className="login-form">
-            <label>Usuário:</label>
-            <input
-              type="text"
-              value={usuario}
-              onChange={(e) => setUsuario(e.target.value)}
-              required
-            />
+            <div className="card shadow p-4 text-center">
 
-            <label>Senha:</label>
-            <input
-              type="password"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-            />
+              <h1 className="mb-3">VidaPlus</h1>
+              <p className="text-muted">
+                Controle de pacientes, agendas e relatórios
+              </p>
 
-            {erro && <p className="erro">{erro}</p>}
+              <form onSubmit={handleLogin}>
 
-            <button type="submit" className="home-btn">Entrar</button>
-          </form>
+                <div className="mb-3 text-start">
+                  <label className="form-label">Usuário:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={usuario}
+                    onChange={(e) => setUsuario(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3 text-start">
+                  <label className="form-label">Senha:</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {erro && <p className="text-danger">{erro}</p>}
+
+                <button type="submit" className="btn btn-primary w-100 mt-2">
+                  Entrar
+                </button>
+
+              </form>
+
+            </div>
+          </div>
         </div>
       </div>
     </main>
