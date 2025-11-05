@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
+import Cadastro from "./pages/Cadastro";
+import Relatorios from "./pages/Relatorios";
+import Agendamento from "./pages/Agendamento";
+import Home from "./pages/Home";
+import "./App.css"; // mantém seu CSS global (não sobrescreva Dashboard.css)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        {/* Home COMO TELA INICIAL */}
+        <Route path="/" element={<Home />} />
+
+        {/* Dashboard em /dashboard */}
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Demais rotas */}
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/agendamento" element={<Agendamento />} />
+        <Route path="/relatorios" element={<Relatorios />} />
+      </Routes>
+    </Router>
   );
 }
 
