@@ -5,7 +5,7 @@ import Cadastro from "./pages/Cadastro";
 import Relatorios from "./pages/Relatorios";
 import Agendamento from "./pages/Agendamento";
 import Home from "./pages/Home";
-import "./App.css"; // mantém seu CSS global (não sobrescreva Dashboard.css)
+import "./App.css"; 
 
 function App() {
   return (

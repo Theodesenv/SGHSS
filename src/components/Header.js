@@ -5,7 +5,7 @@ export default function Header() {
     <header className="header"> {/* mantenha sua .header no CSS */}
       <nav className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/dashboard">Relatórios</Link>
+        <Link to="/dashboard">Visão geral</Link>
         <Link to="/cadastro">Cadastro</Link>
         <Link to="/agendamento">Agendamento</Link>
         <Link to="/relatorios">Relatórios</Link>
